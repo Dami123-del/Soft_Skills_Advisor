@@ -1,0 +1,47 @@
+/* ==========================================================================
+   RESULTS.CSS — results.html only
+   Loaded after base.css. Covers the results hero, the Canvas radar chart
+   card and its legend, the per-category breakdown bars, and the
+   recommendation panel with next-step tips.
+   ========================================================================== */
+
+.results-hero { padding: 56px 0 24px; text-align: center; }
+.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; padding-bottom: 60px; }
+.canvas-card {
+  background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-l);
+  padding: 28px; box-shadow: var(--shadow-card); text-align: center;
+}
+#resultsCanvas { max-width: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px 18px; justify-content: center; margin-top: 18px; font-size: 0.82rem; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.breakdown-list { display: grid; gap: 16px; }
+.breakdown-item {
+  background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-m);
+  padding: 18px 20px;
+}
+.breakdown-item .row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.breakdown-item .row strong { font-family: var(--font-display); font-size: 1.05rem; }
+.breakdown-item .row span { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-soft); }
+.bar-track { height: 10px; border-radius: 999px; background: var(--paper); overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; width: 0%; transition: width 1s var(--ease); }
+
+.recommend-card {
+  margin: 0 0 60px; background: var(--ink); color: var(--paper);
+  border-radius: var(--radius-l); padding: 40px; display: grid; gap: 20px; grid-template-columns: 1fr 1fr;
+}
+.recommend-card h2 { color: var(--paper); }
+.recommend-card p { color: #c9d0dd; }
+.recommend-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.recommend-list li { padding-left: 28px; position: relative; }
+.recommend-list li::before {
+  content: "→"; position: absolute; left: 0; color: var(--amber); font-weight: 700;
+}
+.results-actions { display: flex; gap: 14px; justify-content: center; padding-bottom: 70px; flex-wrap: wrap; }
+
+/* ---- Responsive ------------------------------------------------------------ */
+@media (max-width: 880px) {
+  .results-grid { grid-template-columns: 1fr; }
+  .recommend-card { grid-template-columns: 1fr; }
+}

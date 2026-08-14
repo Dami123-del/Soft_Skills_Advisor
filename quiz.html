@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz — TrailHead Soft Skills Advisor</title>
+<meta name="description" content="10 scenario questions to find your strongest soft skill." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%2316233b'/%3E%3Cpath d='M15 6L18 15L15 24L12 15L15 6Z' fill='%23e3a857'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="15" cy="15" r="13" stroke="#16233b" stroke-width="2"/>
+        <path d="M15 6L18 15L15 24L12 15L15 6Z" fill="#e3a857"/>
+      </svg>
+      TrailHead
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Start</a>
+      <a href="quiz.html" aria-current="page">Quiz</a>
+      <a href="results.html">Results</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" style="padding-bottom:60px;">
+
+  <div class="quiz-header">
+    <div>
+      <span class="eyebrow">Waypoint <span id="qIndex">1</span> of <span id="qTotal">10</span></span>
+      <div class="progress-label" id="hikerName">Welcome, hiker</div>
+    </div>
+    <div class="timer-display" id="timerDisplay" aria-live="polite">0:20</div>
+  </div>
+
+  <!-- Signature progress element: dotted trail with a moving waymarker pin -->
+  <div class="trail-progress" aria-hidden="true">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none">
+      <path class="trail-line" d="M20,20 L980,20"></path>
+      <path class="trail-line-fill" id="trailFill" d="M20,20 L980,20" stroke-dasharray="1 10" stroke-dashoffset="960"></path>
+      <g class="trail-pin" id="trailPin" transform="translate(20,20)">
+        <circle r="9" fill="#16233b"/>
+        <circle r="3.5" fill="#e3a857"/>
+      </g>
+    </svg>
+  </div>
+
+  <section class="quiz-card" id="quizCard" aria-live="polite">
+    <span class="eyebrow" id="categoryHint">Question</span>
+    <h2 id="questionPrompt">Loading your first waypoint…</h2>
+    <div id="questionBody"></div>
+    <div class="streak-badge" id="streakBadge">🔥 Speed streak ×<span id="streakMult">1.2</span></div>
+  </section>
+
+  <div class="quiz-nav">
+    <button class="btn btn-ghost" id="prevBtn" disabled>← Back</button>
+    <button class="btn btn-primary" id="nextBtn" disabled>Next waypoint →</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Trailhead — Soft Skills Advisor</span>
+    <span id="footerScore" style="font-family:var(--font-mono);"></span>
+  </div>
+</footer>
+
+<script src="js/quiz-data.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/media.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Soft Skills Advisor — TrailHead</title>
+<meta name="description" content="Find your strongest soft skills and build your Learning Journey Plan." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%2316233b'/%3E%3Cpath d='M15 6L18 15L15 24L12 15L15 6Z' fill='%23e3a857'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="15" cy="15" r="13" stroke="#16233b" stroke-width="2"/>
+        <path d="M15 6L18 15L15 24L12 15L15 6Z" fill="#e3a857"/>
+      </svg>
+      TrailHead
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Start</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="results.html">Results</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-copy fade-up" style="--delay:0s;">
+      <span class="eyebrow">Soft Skills Advisor · New Student Orientation</span>
+      <h1>Find the skill that already gets you through the toughest weeks.</h1>
+      <p class="lede">
+        Trailhead is a 10-question waypoint quiz that reads your instincts across
+        Communication, Critical Thinking, Time Management and Leadership — then
+        plots a compass reading you can use to build your Learning Journey Plan.
+      </p>
+      <div class="hero-actions">
+        <a href="#start-form" class="btn btn-primary">Begin the trail</a>
+        <a href="contact.html" class="btn btn-ghost">Ask a question</a>
+      </div>
+    </div>
+
+    <!-- Signature visual: a hand-drawn-style compass, matching the results-page canvas motif -->
+    <div class="compass-figure fade-up" style="--delay:0.15s;" aria-hidden="true">
+      <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="130" cy="130" r="110" fill="#ffffff" stroke="#d7d9c9" stroke-width="2"/>
+        <circle cx="130" cy="130" r="80" fill="none" stroke="#d7d9c9" stroke-width="1" stroke-dasharray="2 8"/>
+        <g font-family="JetBrains Mono" font-size="11" fill="#3c4a63" font-weight="700">
+          <text x="124" y="34" text-anchor="middle">N</text>
+          <text x="124" y="234" text-anchor="middle">S</text>
+          <text x="18" y="134" text-anchor="middle">W</text>
+          <text x="238" y="134" text-anchor="middle">E</text>
+        </g>
+        <g class="compass-needle">
+          <polygon points="130,50 140,130 130,150 120,130" fill="#e3a857"/>
+          <polygon points="130,210 140,130 130,110 120,130" fill="#16233b"/>
+        </g>
+        <circle cx="130" cy="130" r="8" fill="#16233b"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORY TEASER ============ -->
+  <section aria-labelledby="categories-heading">
+    <span class="eyebrow" id="categories-heading">Four waymarkers</span>
+    <h2 style="margin-top:8px;">What the trail measures</h2>
+    <div class="category-grid">
+      <article class="category-card fade-up" style="--delay:0.05s;">
+        <span class="category-dot" style="background:#e3a857"></span>
+        <h3>Communication</h3>
+        <p>How clearly you share ideas and listen to others.</p>
+      </article>
+      <article class="category-card fade-up" style="--delay:0.15s;">
+        <span class="category-dot" style="background:#2f7a6f"></span>
+        <h3>Critical Thinking</h3>
+        <p>How you break down problems and question assumptions.</p>
+      </article>
+      <article class="category-card fade-up" style="--delay:0.25s;">
+        <span class="category-dot" style="background:#5b7fb5"></span>
+        <h3>Time Management</h3>
+        <p>How you plan, prioritise, and protect deadlines.</p>
+      </article>
+      <article class="category-card fade-up" style="--delay:0.35s;">
+        <span class="category-dot" style="background:#b5533c"></span>
+        <h3>Leadership</h3>
+        <p>How you take initiative and support a team toward a goal.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ PRELIMINARY DETAILS FORM ============ -->
+  <section id="start-form" style="padding-bottom:80px;">
+    <div style="max-width:560px;margin:0 auto;">
+      <span class="eyebrow">Before you set off</span>
+      <h2 style="margin-top:8px;">Tell us who's hiking</h2>
+      <p style="margin-bottom:28px;">
+        We'll use this to personalise your results page. All fields validate as you type.
+      </p>
+
+      <form class="form-card" id="prelimForm" novalidate>
+        <div class="field" id="field-name">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="e.g. Joseph Oluwadamilare" autocomplete="name" />
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <div class="field" id="field-email">
+          <label for="email">Institutional email</label>
+          <input type="email" id="email" name="email" placeholder="first.name@alustudent.com" autocomplete="email" />
+          <span class="hint">Format: firstname.lastname@alustudent.com</span>
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <div class="field" id="field-studentId">
+          <label for="studentId">Student ID</label>
+          <input type="text" id="studentId" name="studentId" placeholder="e.g. BSE-24031" />
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <div class="field" id="field-phone">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" placeholder="e.g. 5712 3456" autocomplete="tel" />
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="prelimSubmit" style="width:100%;">
+          Start the quiz →
+        </button>
+        <div class="form-status" id="prelimStatus" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>TrailHead — Soft Skills Advisor</span>
+    <span>Built for Autonomy, Responsibility &amp; Working with Others</span>
+  </div>
+</footer>
+
+<script src="js/validation.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>

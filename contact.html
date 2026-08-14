@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — TrailHead Soft Skills Advisor</title>
+<meta name="description" content="Get in touch or send feedback about the TrailHead Soft Skills Advisor." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%2316233b'/%3E%3Cpath d='M15 6L18 15L15 24L12 15L15 6Z' fill='%23e3a857'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="15" cy="15" r="13" stroke="#16233b" stroke-width="2"/>
+        <path d="M15 6L18 15L15 24L12 15L15 6Z" fill="#e3a857"/>
+      </svg>
+      TrailHead
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Start</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="results.html">Results</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="contact-grid">
+
+    <div class="author-card fade-up" style="--delay:0s;">
+      <span class="eyebrow">Basecamp</span>
+      <h2 style="margin-top:8px;">About this project</h2>
+      <p>
+        Trailhead is a Soft Skills Advisor built for the "Autonomy, Responsibility and
+        Working with Others" module — a scenario-based quiz that helps incoming
+        students identify their strongest soft skill and plan their first term around it.
+      </p>
+      <ul>
+        <li>👤 <strong>Author:</strong> <span id="authorName">Add your name here</span></li>
+        <li>💻 <strong>Repository:</strong> <a href="https://github.com/dami123-del/trailhead-soft-skills-advisor" target="_blank" rel="noopener">github.com/dami123-del/trailhead-soft-skills-advisor</a></li>
+        <li>🌐 <strong>Live site:</strong> <a href="https://dami123-del.github.io/trailhead-soft-skills-advisor/" target="_blank" rel="noopener">dami123-del.github.io/trailhead-soft-skills-advisor</a></li>
+        <li>✉️ <strong>Email:</strong> <a href="mailto:you@bse.ac.mu">you@bse.ac.mu</a></li>
+      </ul>
+    </div>
+
+    <div class="fade-up" style="--delay:0.15s;">
+      <span class="eyebrow">Send feedback</span>
+      <h2 style="margin-top:8px;">Tell us how the trail felt</h2>
+      <p style="margin-bottom:24px;">Found a bug, or have a suggestion for a fifth waymarker? Let us know.</p>
+
+      <form class="form-card" id="contactForm" novalidate>
+        <div class="field" id="field-cname">
+          <label for="cname">Your name</label>
+          <input type="text" id="cname" name="cname" placeholder="e.g. Joseph Oluwadamilare" autocomplete="name" />
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <div class="field" id="field-cemail">
+          <label for="cemail">Email address</label>
+          <input type="email" id="cemail" name="cemail" placeholder="you@example.com" autocomplete="email" />
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <div class="field" id="field-cphone">
+          <label for="cphone">Phone <span style="font-weight:400;">(optional)</span></label>
+          <input type="tel" id="cphone" name="cphone" placeholder="e.g. 5712 3456" autocomplete="tel" />
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <div class="field" id="field-csubject">
+          <label for="csubject">Topic</label>
+          <select id="csubject" name="csubject">
+            <option value="">Choose a topic…</option>
+            <option value="bug">Something's broken</option>
+            <option value="idea">Feature idea</option>
+            <option value="results">Question about my results</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <div class="field" id="field-cmessage">
+          <label for="cmessage">Message</label>
+          <textarea id="cmessage" name="cmessage" placeholder="Tell us what happened…"></textarea>
+          <span class="error-message" role="alert"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send feedback</button>
+        <div class="form-status" id="contactStatus" role="status"></div>
+      </form>
+    </div>
+
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>TrailHead — Soft Skills Advisor</span>
+    <span>Built for Autonomy, Responsibility &amp; Working with Others</span>
+  </div>
+</footer>
+
+<script src="js/validation.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

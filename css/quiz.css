@@ -1,0 +1,121 @@
+/* ==========================================================================
+   QUIZ.CSS — quiz.html only
+   Loaded after base.css. Covers the timer badge, the signature dotted trail
+   progress indicator, the question card and its three question types
+   (choice / hotspot / audio), the streak badge, and quiz navigation.
+   ========================================================================== */
+
+.quiz-header {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  padding: 28px 0 8px; flex-wrap: wrap;
+}
+.timer-display {
+  font-family: var(--font-mono); font-size: 1.6rem; font-weight: 700;
+  background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: var(--radius-s);
+  min-width: 96px; text-align: center; transition: background 0.3s var(--ease);
+}
+.timer-display.warning { background: var(--clay); animation: pulse-warn 0.8s infinite; }
+.timer-display.locked { background: var(--ink-soft); }
+@keyframes pulse-warn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+/* Signature progress element: dotted trail with a moving waymarker pin */
+.trail-progress { position: relative; height: 40px; margin: 10px 0 30px; }
+.trail-progress svg { width: 100%; height: 100%; overflow: visible; }
+.trail-line { stroke: var(--line); stroke-width: 3; stroke-dasharray: 1 10; stroke-linecap: round; fill: none; }
+.trail-line-fill { stroke: var(--moss); stroke-width: 3; stroke-dasharray: 1 10; stroke-linecap: round; fill: none;
+  transition: stroke-dashoffset 0.5s var(--ease); }
+.trail-pin { transition: transform 0.5s var(--ease); }
+.progress-label { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); }
+
+.quiz-card {
+  background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-l);
+  padding: 40px; box-shadow: var(--shadow-card);
+}
+/* Re-added by JS on every question change (see quiz.js goToQuestion) so the
+   entrance motion replays instead of firing only once on first page load. */
+.quiz-card.card-in-replay { animation: card-in 0.4s var(--ease); }
+@keyframes card-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.quiz-card .eyebrow { display: block; margin-bottom: 10px; }
+.quiz-card h2 { font-size: 1.5rem; }
+
+.option-list { display: grid; gap: 12px; margin-top: 24px; }
+.option {
+  display: flex; align-items: center; gap: 14px; text-align: left;
+  border: 2px solid var(--line); background: var(--paper);
+  border-radius: var(--radius-m); padding: 16px 18px; font-size: 0.95rem; color: var(--ink);
+  transition: border-color 0.16s var(--ease), background 0.16s var(--ease), transform 0.12s var(--ease);
+}
+.option:hover { border-color: var(--ink); transform: translateX(3px); }
+.option .option-letter {
+  width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center; font-family: var(--font-mono);
+  font-size: 0.78rem; flex-shrink: 0;
+}
+.option.selected {
+  border-color: var(--moss); background: #eaf5f2;
+  animation: option-pop 0.3s var(--ease);
+}
+.option.selected .option-letter { background: var(--moss); animation: letter-pop 0.35s var(--ease); }
+.option.locked { opacity: 0.55; pointer-events: none; }
+@keyframes option-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+@keyframes letter-pop {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.25) rotate(-8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.quiz-card.locked-out { animation: shake 0.4s var(--ease); }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+.streak-badge {
+  display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono);
+  font-size: 0.78rem; font-weight: 700; color: var(--amber-dark); background: #fbeed9;
+  padding: 5px 12px; border-radius: 999px; margin-top: 16px; opacity: 0; transform: scale(0.9);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.streak-badge.show { opacity: 1; transform: scale(1); }
+
+/* Image hotspot question */
+.hotspot-wrap { position: relative; margin-top: 20px; border-radius: var(--radius-m); overflow: hidden; border: 1px solid var(--line); }
+.hotspot-wrap svg { width: 100%; height: auto; display: block; }
+.hotspot {
+  cursor: pointer; transition: transform 0.15s var(--ease);
+  transform-box: fill-box; transform-origin: center;
+}
+.hotspot:hover, .hotspot:focus-visible { transform: scale(1.06); }
+.hotspot.selected circle, .hotspot.selected rect {
+  stroke: var(--moss); stroke-width: 3;
+  animation: hotspot-pop 0.35s var(--ease);
+}
+@keyframes hotspot-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+.hotspot-label {
+  font-family: var(--font-body); font-size: 12px; font-weight: 700; fill: var(--ink);
+}
+
+/* Audio question */
+.audio-card { margin-top: 20px; background: var(--paper); border: 1px dashed var(--line); border-radius: var(--radius-m); padding: 20px; }
+.audio-controls { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+.audio-btn {
+  width: 44px; height: 44px; border-radius: 50%; border: none; background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  transition: transform 0.15s var(--ease), background 0.15s var(--ease);
+}
+.audio-btn:hover { transform: scale(1.08); background: var(--moss-dark); }
+.audio-progress { flex: 1; height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.audio-progress-fill { height: 100%; width: 0%; background: var(--moss); transition: width 0.1s linear; }
+.audio-time { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); min-width: 40px; text-align: right; }
+
+.quiz-nav { display: flex; justify-content: space-between; margin-top: 28px; }
+
+/* ---- Responsive ------------------------------------------------------------ */
+@media (max-width: 560px) {
+  .quiz-card { padding: 26px 20px; }
+}

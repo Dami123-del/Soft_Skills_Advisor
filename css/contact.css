@@ -1,0 +1,70 @@
+/* ==========================================================================
+   CONTACT.CSS — contact.html only
+   Loaded after base.css. Covers the two-column contact layout, the author
+   info card, and the feedback form. The form block is the same one used in
+   landing.css — duplicated intentionally so this file works standalone.
+   ========================================================================== */
+
+.contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 44px; padding: 56px 0 80px; align-items: start; }
+.author-card {
+  background: var(--paper-raised); border: 1px solid var(--line); border-radius: var(--radius-l);
+  padding: 32px; box-shadow: var(--shadow-card);
+}
+.author-card ul { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 12px; font-size: 0.9rem; }
+.author-card ul a { text-decoration: none; font-weight: 700; color: var(--moss-dark); }
+.author-card ul a:hover { text-decoration: underline; }
+
+/* ---- Feedback form ---------------------------------------------------------
+   Identical block also appears in landing.css for the preliminary details
+   form — kept duplicated on purpose so each page's stylesheet stands alone. */
+.form-card {
+  background: var(--paper-raised); border: 1px solid var(--line);
+  border-radius: var(--radius-l); padding: 36px; box-shadow: var(--shadow-card);
+}
+.field { margin-bottom: 22px; position: relative; }
+.field label {
+  display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; color: var(--ink);
+}
+.field .hint { font-size: 0.78rem; color: var(--ink-soft); margin-top: 4px; }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 13px 14px; border-radius: var(--radius-s);
+  border: 2px solid var(--line); background: var(--paper); font-size: 0.95rem;
+  font-family: inherit; color: var(--ink);
+  transition: border-color 0.16s var(--ease), background 0.16s var(--ease), box-shadow 0.16s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-color: var(--ink); background: var(--paper-raised);
+}
+/* real-time validation state classes toggled by JS */
+.field.is-valid input, .field.is-valid textarea { border-color: var(--moss); background: #f1f8f6; }
+.field.is-invalid input, .field.is-invalid textarea { border-color: var(--clay); background: var(--clay-soft); }
+.field .error-message {
+  display: block; min-height: 1.1em; font-size: 0.78rem; color: var(--clay);
+  margin-top: 6px; font-weight: 600;
+  opacity: 0; transform: translateY(-4px);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.field.is-invalid .error-message { opacity: 1; transform: translateY(0); }
+.field .valid-icon, .field .invalid-icon {
+  position: absolute; right: 14px; top: 40px; opacity: 0; transition: opacity 0.15s var(--ease);
+  font-size: 0.95rem;
+}
+.field.is-valid .valid-icon { opacity: 1; color: var(--moss); }
+.field.is-invalid .invalid-icon { opacity: 1; color: var(--clay); }
+
+.form-status {
+  margin-top: 18px; padding: 12px 16px; border-radius: var(--radius-s);
+  font-size: 0.85rem; font-weight: 600; display: none;
+}
+.form-status.show { display: block; }
+.form-status.success { background: #eaf5f2; color: var(--moss-dark); }
+.form-status.error { background: var(--clay-soft); color: var(--clay); }
+
+/* ---- Responsive ------------------------------------------------------------ */
+@media (max-width: 880px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .form-card { padding: 24px; }
+}

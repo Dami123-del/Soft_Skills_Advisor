@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Results — TrailHead Soft Skills Advisor</title>
+<meta name="description" content="Your soft skills profile and personalised Learning Journey Plan recommendations." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='13' fill='%2316233b'/%3E%3Cpath d='M15 6L18 15L15 24L12 15L15 6Z' fill='%23e3a857'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/results.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="15" cy="15" r="13" stroke="#16233b" stroke-width="2"/>
+        <path d="M15 6L18 15L15 24L12 15L15 6Z" fill="#e3a857"/>
+      </svg>
+      TrailHead
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Start</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="results.html" aria-current="page">Results</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="results-hero fade-up" style="--delay:0s;">
+    <span class="eyebrow">Your compass reading</span>
+    <h1 id="resultsHeading" style="margin-top:10px;">Here's where your instincts point</h1>
+    <p id="resultsSub" style="max-width:56ch;margin:0 auto;">Loading your trail results…</p>
+  </section>
+
+  <section class="results-grid">
+    <div class="canvas-card fade-up" style="--delay:0.1s;">
+      <canvas id="resultsCanvas" width="420" height="420" role="img" aria-label="Radar chart of your four soft skill scores"></canvas>
+      <div class="legend" id="chartLegend"></div>
+    </div>
+
+    <div class="breakdown-list fade-up" id="breakdownList" style="--delay:0.25s;">
+      <!-- Populated by canvas.js -->
+    </div>
+  </section>
+
+  <section class="recommend-card fade-up" style="--delay:0.35s;">
+    <div>
+      <span class="eyebrow" style="color:#e3a857;">Strongest waymarker</span>
+      <h2 id="dominantCategory">Communication</h2>
+      <p id="dominantBlurb">How clearly you share ideas and listen to others.</p>
+    </div>
+    <div>
+      <span class="eyebrow" style="color:#e3a857;">Next steps for your Learning Journey Plan</span>
+      <ul class="recommend-list" id="recommendList"></ul>
+    </div>
+  </section>
+
+  <div class="results-actions">
+    <a href="quiz.html" class="btn btn-ghost" id="retakeBtn">Retake the trail</a>
+    <a href="contact.html" class="btn btn-primary">Talk to an advisor</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>TrailHead — Soft Skills Advisor</span>
+    <span>Built for Autonomy, Responsibility &amp; Working with Others</span>
+  </div>
+</footer>
+
+<script src="js/quiz-data.js"></script>
+<script src="js/canvas.js"></script>
+</body>
+</html>
