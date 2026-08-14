@@ -81,10 +81,10 @@ const QUIZ_DATA = [
     prompt: "Click the item on this welcome-week desk that would help you most in week one.",
     // hotspot targets are drawn directly in the quiz page SVG; ids link option->points
     hotspotOptions: [
-      { id: "planner", label: "Weekly planner", x: 60, y: 70,  points: { time: 3 } },
-      { id: "notebook", label: "Debate notebook", x: 200, y: 70, points: { communication: 2, critical: 2 } },
-      { id: "badge", label: "Society sign-up sheet", x: 340, y: 70, points: { leadership: 3 } },
-      { id: "checklist", label: "Task checklist", x: 480, y: 70, points: { critical: 2, time: 1 } }
+      { id: "planner", label: "Weekly planner", x: 60, y: 70, imageSrc: "assets/planner.jpg", points: { time: 3 } },
+      { id: "notebook", label: "Debate notebook", x: 200, y: 70, imageSrc: "assets/notebook.jpg", points: { communication: 2, critical: 2 } },
+      { id: "badge", label: "Society sign-up sheet", x: 340, y: 70, imageSrc: "assets/badge.jpg", points: { leadership: 3 } },
+      { id: "checklist", label: "Task checklist", x: 480, y: 70, imageSrc: "assets/checklist.jpg", points: { critical: 2, time: 1 } }
     ]
   },
   {

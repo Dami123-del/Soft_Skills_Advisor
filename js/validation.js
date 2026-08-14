@@ -15,8 +15,8 @@ const REGEX = {
   // Standard email shape: local@domain.tld
   EMAIL_STANDARD: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/,
 
-  // Institutional format, e.g. john.smith@bse.ac.mu or student.2456@bse.ac.mu
-  EMAIL_INSTITUTIONAL: /^[a-zA-Z]{2,}\.[a-zA-Z0-9]{2,}@bse\.ac\.mu$/,
+  // Institutional format: firstname.lastname@domain (accepts bse.ac.mu, alustudent.com, etc.)
+  EMAIL_INSTITUTIONAL: /^[a-zA-Z][a-zA-Z0-9]*\.[a-zA-Z][a-zA-Z0-9]*@(bse\.ac\.mu|alustudent\.com)$/,
 
   // Mauritius-style mobile: optional +230, then 8 digits starting 5-9
   PHONE: /^(\+230[\s-]?)?[5-9]\d{3}[\s-]?\d{4}$/,
@@ -111,7 +111,7 @@ const Rules = {
   emailInstitutional() {
     return {
       test: (v) => REGEX.EMAIL_STANDARD.test(v) && REGEX.EMAIL_INSTITUTIONAL.test(v),
-      message: "Use your institutional email, e.g. first.name@bse.ac.mu"
+      message: "Use your institutional email, e.g. first.name.lastname@university.com"
     };
   },
   phone() {

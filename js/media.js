@@ -17,7 +17,8 @@ function renderHotspotQuestion(container, question, onSelect) {
   const shapes = question.hotspotOptions.map((opt) => `
     <g class="hotspot" tabindex="0" role="button"
        aria-label="${opt.label}" data-hotspot-id="${opt.id}">
-      <circle cx="${opt.x}" cy="${opt.y}" r="42" fill="#eef1ea" stroke="#d7d9c9" stroke-width="2"/>
+      <rect x="${opt.x - 42}" y="${opt.y - 42}" width="84" height="84" fill="#eef1ea" stroke="#d7d9c9" stroke-width="2" rx="4"/>
+      <image href="${opt.imageSrc}" x="${opt.x - 42}" y="${opt.y - 42}" width="84" height="84" preserveAspectRatio="xMidYMid slice"/>
       <text class="hotspot-label" x="${opt.x}" y="${opt.y + 62}" text-anchor="middle">${opt.label}</text>
     </g>`).join("");
 
