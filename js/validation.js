@@ -22,7 +22,7 @@ const REGEX = {
   PHONE: /^(\+230[\s-]?)?[5-9]\d{3}[\s-]?\d{4}$/,
 
   // Student ID like BSE-24031 or CS-2024-118
-  STUDENT_ID: /^[A-Za-z]{2,4}-\d{2,4}(-\d{2,4})?$/,
+  STUDENT_ID: /^[A-Za-z]{2,5}-\d{2,5}(-\d{2,5})?$/,
 
   // At least 8 characters, avoids feeling like a throwaway message
   MESSAGE_MIN: /^.{8,}$/s
