@@ -7,7 +7,7 @@
    + audio renderers), which are loaded before this file.
    ========================================================================== */
 
-const QUESTION_SECONDS = 20;
+const QUESTION_SECONDS = 60;
 
 // ---- Central quiz state ---------------------------------------------------
 const state = {
