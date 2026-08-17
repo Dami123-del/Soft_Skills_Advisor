@@ -1,13 +1,10 @@
 /* ==========================================================================
    VALIDATION ENGINE
-   A small, dependency-free real-time validator. Every field is wired to
-   validate on `input` (as the student types) and `blur` (when they leave
-   the field), toggling `.is-valid` / `.is-invalid` and writing the message
-   into a `.error-message` element — never a native alert() popup.
+   A small, dependency-free real-time validator.
    ========================================================================== */
 
 /* ---- Regex library ------------------------------------------------------
-   Kept here so every page (landing + contact) shares the exact same rules. */
+    (landing + contact) shares the exact same rules. */
 const REGEX = {
   // Letters, spaces, hyphens and apostrophes only — blocks digits/symbols.
   NAME: /^[A-Za-z][A-Za-z\s'-]{1,49}$/,

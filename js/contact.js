@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isValid = validateForm(form);
 
     if (!isValid) {
-      status.textContent = "Please fix the highlighted fields before sending.";
+      status.textContent = "field required.";
       status.className = "form-status show error";
       return;
     }

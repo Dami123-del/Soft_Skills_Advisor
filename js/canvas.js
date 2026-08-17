@@ -1,8 +1,5 @@
 /* ==========================================================================
    RESULTS CANVAS MODULE
-   Reads the scoring payload left by quiz.js in sessionStorage and renders a
-   4-axis radar/spider chart using the raw Canvas 2D API — no charting
-   library. Also populates the text breakdown and recommendation panels.
    ========================================================================== */
 
 const CATEGORY_ORDER = ["communication", "critical", "time", "leadership"];
@@ -137,8 +134,7 @@ function drawRadarChart(canvas, percentages) {
     ctx.fillText(CATEGORY_META[key].label, labelPoint.x, labelPoint.y);
   });
 
-  // Data polygon, scaled so the highest category reaches ~92% of the outer ring
-  // (keeps the shape readable even when one category dominates).
+  // Data polygon
   const maxPct = Math.max(...Object.values(percentages), 1);
   const scale = 0.92 / (maxPct / 100);
 

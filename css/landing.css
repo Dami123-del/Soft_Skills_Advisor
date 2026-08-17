@@ -18,10 +18,7 @@
 /* Signature element: hand-drawn compass/trail SVG, gently rotating */
 .compass-figure { position: relative; }
 .compass-figure svg { width: 100%; height: auto; }
-.compass-needle {
-  transform-origin: 130px 130px;
-  animation: needle-settle 5s var(--ease) infinite alternate;
-}
+
 @keyframes needle-settle {
   0% { transform: rotate(-6deg); }
   100% { transform: rotate(9deg); }

@@ -1,8 +1,6 @@
 /* ==========================================================================
    TIMER MODULE
-   A small countdown timer class used by the quiz engine. Kept independent
-   of any DOM so it can be unit-tested or reused (e.g. for the audio question
-   progress bar) without duplicating interval-management logic.
+   A small countdown timer class used by the quiz to time questions
    ========================================================================== */
 class CountdownTimer {
   /**
